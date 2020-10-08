@@ -1,18 +1,31 @@
 module.exports = {
-  plugins: [
-    'tailwindcss',
-    'postcss-flexbugs-fixes',
-    [
-      'postcss-preset-env',
-      {
-        autoprefixer: {
-          flexbox: 'no-2009',
+  plugins: {
+    tailwindcss: {},
+    'postcss-flexbugs-fixes': {},
+    'postcss-preset-env': {
+      stage: 3
+    },
+    // 'postcss-momentum-scrolling': {},
+    // 'postcss-sparrow': {
+    //   transformations: [
+    //     {
+    //       selectors: ['*'],
+    //       inclusion: true,
+    //       callbacks: [
+    //         require('postcss-sparrow-auto-text-indent')
+    //       ]
+    //     }
+    //   ]
+    // },
+    // autoprefixer: {},
+    cssnano: {
+      preset: ['advanced', {
+        discardComments: {
+          removeAll: true
         },
-        stage: 3,
-        features: {
-          'custom-properties': false,
-        },
-      },
-    ],
-  ],
+        zindex: false,
+        discardUnused: false
+      }]
+    }
+  }
 }
